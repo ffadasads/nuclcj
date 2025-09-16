@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            padding: 15px;
+        }
+        .page-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #212529;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* 查询表单样式 */
+        .search-form {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 6px;
+        }
+        .form-group select, 
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .search-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .search-btn:hover {
+            background-color: #0b5ed7;
+        }
+        /* 结果展示样式 */
+        .result-section {
+            margin-top: 25px;
+        }
+        .result-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 12px;
+            padding-left: 8px;
+            border-left: 3px solid #0d6efd;
+        }
+        .match-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .match-league {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        .match-time {
+            font-size: 13px;
+            color: #dc3545;
+            margin-bottom: 12px;
+        }
+        .match-teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .team {
+            text-align: center;
+            width: 35%;
+        }
+        .team-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #212529;
+        }
+        .vs {
+            font-size: 16px;
+            font-weight: bold;
+            color: #495057;
+        }
+        .no-result {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">赛事查询</h1>
+
+    <!-- 赛事查询表单 -->
+    <div class="search-form">
+        <div class="form-group">
+            <label for="match-type">赛事类型</label>
+            <select id="match-type">
+                <option value="">全部赛事</option>
+                <option value="epl">英格兰超级联赛</option>
+                <option value="la-liga">西班牙甲级联赛</option>
+                <option value="bundesliga">德国足球甲级联赛</option>
+                <option value="champions-league">欧洲冠军联赛</option>
+                <option value="world-cup">世界杯</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="match-date">比赛日期</label>
+            <input type="date" id="match-date">
+        </div>
+        <button class="search-btn" onclick="searchMatches()">查询赛事</button>
+    </div>
+
+    <!-- 赛事结果展示区 -->
+    <div class="result-section">
+        <h2 class="result-title">查询结果</h2>
+        <div id="match-result">
+            <!-- 默认提示 -->
+            <div class="no-result">请选择赛事类型和日期，点击查询获取赛事信息</div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟赛事数据（实际项目中需对接后端接口）
+        const mockMatchData = {
+            "epl_2024-05-25": [
+                { league: "英格兰超级联赛", time: "2024-05-25 22:00", home: "曼城", away: "切尔西" },
+                { league: "英格兰超级联赛", time: "2024-05-25 19:30", home: "阿森纳", away: "利物浦" }
+            ],
+            "champions-league_2024-05-29": [
+                { league: "欧洲冠军联赛", time: "2024-05-29 03:00", home: "皇家马德里", away: "拜仁慕尼黑" }
+            ],
+            "world-cup_2024-06-10": [
+                { league: "世界杯", time: "2024-06-10 20:00", home: "阿根廷", away: "法国" }
+            ]
+        };
+
+        // 赛事查询函数
+        function searchMatches() {
+            const matchType = document.getElementById("match-type").value;
+            const matchDate = document.getElementBy

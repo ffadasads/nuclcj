@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球员统计</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+        body { background:#f5f5f5; padding:15px; }
+        .title { font-size:18px; font-weight:bold; color:#2c3e50; text-align:center; margin-bottom:15px; }
+        .search { display:flex; gap:8px; margin-bottom:15px; }
+        .search input { flex:1; padding:10px; border:1px solid #ddd; border-radius:4px; font-size:14px; }
+        .search button { padding:10px 16px; background:#3498db; color:#fff; border:none; border-radius:4px; font-size:14px; cursor:pointer; }
+        table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 3px rgba(0,0,0,0.1); }
+        th { background:#2c3e50; color:#fff; padding:10px; font-size:13px; text-align:left; }
+        td { padding:10px; font-size:13px; color:#555; border-bottom:1px solid #f1f1f1; }
+        .no-result { background:#fff; padding:15px; border-radius:8px; text-align:center; color:#666; font-size:14px; margin-top:15px; }
+    </style>
+</head>
+<body>
+    <h1 class="title">球员统计</h1>
+
+    <div class="search">
+        <input type="text" id="search-input" placeholder="输入球员名">
+        <button onclick="searchStats()">搜索</button>
+    </div>
+    <table id="stats-table">
+        <thead>
+            <tr><<th>球员</</th><<th>位置</</th><<th>俱乐部</</th><<th>出场</</th><<th>进球</</th><<th>助攻</</th></tr>
+        </thead>
+        <tbody id="stats-body"></tbody>
+    </table>
+    <script>
+        const playerData = [
+            {name:"梅西", pos:"前锋", club:"迈阿密国际", apps:26, goals:21, assists:16},
+            {name:"姆巴佩", pos:"中锋", club:"皇马", apps:45, goals:40, assists:12},
+            {name:"C罗", pos:"前锋", club:"利雅得胜利", apps:34, goals:32, assists:8},
+            {name:"哈兰德", pos:"中锋", club:"曼城", apps:49, goals:52, assists:9},
+            {name:"凯恩", pos:"中锋", club:"拜仁", apps:45, goals:42, assists:11},
+            {name:"罗德里", pos:"后腰", club:"曼城", apps:50, goals:7, assists:12},
+            {name:"维尼修斯", pos:"左边锋", club:"皇马", apps:48, goals:23, assists:15},
+            {name:"莱万", pos:"中锋", club:"巴萨", apps:43, goals:31, assists:7},
+            {name:"范戴克", pos:"中后卫", club:"利物浦", apps:40, goals:5, assists:3},
+            {name:"库尔图瓦", pos:"门将", club:"皇马", apps:38, goals:0, assists:0}
+        ];
+        renderTable(playerData);
+        function renderTable(data) {
+            const tbody = document.getElementById("stats-body");
+            tbody.innerHTML = "";
+            const noResult = document.querySelector(".no-result");
+            if (noResult) noResult.remove();
+
+            if (data.length === 0) {
+                document.body.insertAdjacentHTML("beforeend", '<div class="no-result">未找到数据</div>');
+                return;
+            }
+
+            data.forEach(p => {
+                tbody.innerHTML += `<tr><td>${p.name}</td><td>${p.pos}</td><td>${p.club}</td><td>${p.apps}</td><td>${p.goals}</td><td>${p.assists}</td></tr>`;
+            });
+        }
+        function searchStats() {
+            const val = document.getElementById("search-input").value.trim().toLowerCase();
+            const filtered = playerData.filter(p => p.name.toLowerCase().includes(val));
+            renderTable(filtered);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>添加裁判</title>
+		<!-- 新 Bootstrap5 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+		 
+		<!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>添加裁判</h1>
+			<hr>
+			<form>
+				<div class="mb-3 mt-3">
+					姓名*<input class="form-control" placeholder="请输入姓名"/>
+				</div>
+				<div>
+					性别*<br><input type="radio" name="nuc" class="form-check-input"/>男 
+					 <input type="radio" name="nuc" class="form-check-input"/>女
+				</div>
+				<div class="mb-3 mt-3">
+					国家选择*<br><select>
+						<option>请选择国家</option>
+						<option>中国</option>
+						<option>美国</option>
+						<option>英国</option>
+						<option>法国</option>
+					</select>
+				<div class="mb-3 mt-3">
+					任职生涯*<input class="form-control" placeholder="请输入任职生涯"/>
+				</div>
+				<div class="mb-3 mt-3">
+					参加赛事*<input class="form-control" placeholder="请输入参加赛事"/>
+				</div>
+				<div class="mb-3 mt-3">
+					备注<textarea class="form-control" placeholder="请输入备注信息"></textarea>
+				</div>
+				<br>
+				<div class="text-end">
+				<button type="button" class="btn btn-secondary">取消</button>
+				<button type="button" class="btn btn-primary">保存</button>
+				</div>
+			</form>
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球联赛成绩查询</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 20px auto; padding: 0 15px; }
+        .search-group { margin-bottom: 20px; display: flex; gap: 10px; }
+        select, input, button { padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        select, input { flex: 1; }
+        button { background: #2c3e50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #34495e; }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 25px; }
+        #result { margin-top: 25px; }
+        .match-item { padding: 12px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .team-names { font-weight: 500; }
+        .match-info { text-align: right; }
+        .no-result { text-align: center; color: #666; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h1>足球联赛成绩查询</h1>
+
+    
+    <div class="search-group">
+        <select id="leagueFilter" placeholder="选择联赛">
+            <option value="">全部联赛</option>
+            <option value="premier">英超联赛</option>
+            <option value="la-liga">西甲联赛</option>
+            <option value="bundesliga">德甲联赛</option>
+            <option value="csl">中超联赛</option>
+        </select>
+        <input type="text" id="teamSearch" placeholder="搜索球队" />
+        <button onclick="searchScores()">查询</button>
+    </div>
+
+    
+    <div id="result"></div>
+
+    <script>
+        const matchData = [
+            { league: "premier", home: "曼城", away: "阿森纳", score: "3:1", date: "2024-10-05" },
+            { league: "premier", home: "利物浦", away: "切尔西", score: "2:2", date: "2024-10-06" },
+            { league: "la-liga", home: "皇马", away: "巴萨", score: "1:0", date: "2024-10-07" },
+            { league: "bundesliga", home: "拜仁", away: "多特", score: "4:2", date: "2024-10-05" },
+            { league: "csl", home: "上海海港", away: "山东泰山", score: "2:1", date: "2024-10-08" },
+            { league: "csl", home: "武汉三镇", away: "北京国安", score: "0:0", date: "2024-10-07" }
+        ];
+
+        function searchScores() {
+            const selectedLeague = document.getElementById("leagueFilter").value;
+            const searchTeam = document.getElementById("teamSearch").value.trim().toLowerCase();
+            const resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = "";
+
+            const filtered = matchData.filter(match => {
+                const leagueMatch = !selectedLeague || match.league === selectedLeague;
+                const teamMatch = !searchTeam || 
+                    match.home.toLowerCase().includes(searchTeam) || 
+                    match.away.toLowerCase().includes(searchTeam);
+                return leagueMatch && teamMatch;
+            });
+
+            if (filtered.length === 0) {
+                resultContainer.innerHTML = '<div class="no-result">未找到匹配的比赛成绩</div>';
+                return;
+            }
+
+            filtered.forEach(match => {
+                const matchEl = document.createElement("div");
+                matchEl.className = "match-item";
+                matchEl.innerHTML = `
+                    <div class="team-names">${match.home} vs ${match.away}</div>
+                    <div class="match-info">
+                        <span>${match.score}</span>
+                        <span style="margin-left: 10px; color: #666;">${match.date}</span>
+                    </div>
+                `;
+                resultContainer.appendChild(matchEl);
+            });
+        }
+        window.onload = searchScores;
+    </script>
+</body>
+</html>

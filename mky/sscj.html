@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>赛事创建</title>
+		<!-- 新 Bootstrap5 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+		 
+		<!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>创建赛事</h1>
+			<hr>
+			<form>
+				<div class="mb-3 mt-3">
+					战队名称*<input class="form-control" placeholder="请输入战队名称"/>
+				</div>
+				<div class="mb-3 mt-3">
+					队员人数*<input class="form-control" placeholder="请输入队员人数"/>
+				</div>
+				<div class="mb-3 mt-3">
+					赛事名称*<input class="form-control" placeholder="请输入赛事名称"/>
+				</div>
+				<div class="mb-3 mt-3">
+					赛事时间*<input class="form-control" placeholder="请输入赛事时间"/>
+				</div>
+				<div class="mb-3 mt-3">
+					赛事地点*<input class="form-control" placeholder="请输入赛事地点"/>
+				</div>
+				<div class="mb-3 mt-3">
+					赛事类型*<br><select>
+						<option>请选择赛事类型</option>
+						<option>友谊赛</option>
+						<option>淘汰赛</option>
+						<option>循环赛</option>
+						<option>杯赛</option>
+					</select>
+				</div>
+				<div>
+					<input type="checkbox"/>是否为合格战队
+				</div>
+				<div class="mb-3 mt-3">
+					备注<textarea class="form-control" placeholder="请输入备注信息"></textarea>
+				</div>
+				<br>
+				<div class="text-end">
+				<button type="button" class="btn btn-secondary">取消</button>
+				<button type="button" class="btn btn-primary">保存</button>
+				</div>
+			</form>
+		</div>
+		
+		
+	</body>
+</html>

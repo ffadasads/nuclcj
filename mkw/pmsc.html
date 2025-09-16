@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排名生成</title>
+    <style>
+        body { font-family: sans-serif; max-width: 750px; margin: 15px auto; padding: 0 10px; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h1 { font-size: 18px; color: #1a365d; margin: 0 0 8px; }
+        .header p { font-size: 14px; color: #666; margin: 0; }
+        .rank-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .rank-table th { background: #f8f9fa; color: #495057; font-weight: 600; padding: 10px 5px; border-bottom: 2px solid #dee2e6; }
+        .rank-table td { padding: 12px 5px; text-align: center; border-bottom: 1px solid #eee; }
+        .rank-table .team-col { text-align: left; padding-left: 12px; display: flex; align-items: center; gap: 8px; }
+        .team-logo { width: 24px; height: 24px; border-radius: 50%; background: #e9ecef; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #495057; }
+        .champ-zone { background: #e6f7ff; } 
+        .relegation-zone { background: #fff2f0; } 
+        .rank-num { font-weight: 700; color: #1a365d; }
+        .sort-btn { margin: 0 auto 15px; display: block; padding: 8px 16px; background: #1a365d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .sort-btn:hover { background: #2c5282; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>排名生成</h1>
+        <p>截至2025年9月15日 排名规则：积分＞净胜球＞进球数</p >
+    </div>
+    <button class="sort-btn" onclick="toggleRankRule()">切换排名规则：当前按 <span id="ruleText">真实中超规则</span></button>
+    <table class="rank-table">
+        <thead>
+            <tr>
+                <<th>排名</</th>
+                <<th>球队</</th>
+                <<th>场次</</th>
+                <<th>胜</</th>
+                <<th>平</</th>
+                <<th>负</</th>
+                <<th>进球</</th>
+                <<th>失球</</th>
+                <<th>净胜球</</th>
+                <<th>积分</</th>
+                <<th>近期状态</</th>
+            </tr>
+        </thead>
+        <tbody id="rankList"></tbody>
+    </table>
+    <script>
+        const csl2024Round10 = [
+            { team: "上海海港", played: 10, win: 8, draw: 1, lose: 1, gf: 26, ga: 9, gd: 17, points: 25, form: "胜胜胜平胜" },
+            { team: "山东泰山", played: 10, win: 7, draw: 2, lose: 1, gf: 22, ga: 10, gd: 12, points: 23, form: "胜平胜胜胜" },
+            { team: "武汉三镇", played: 10, win: 6, draw: 2, lose: 2, gf: 19, ga: 11, gd: 8, points: 20, form: "胜胜平负胜" },
+            { team: "北京国安", played: 10, win: 5, draw: 3, lose: 2, gf: 18, ga: 13, gd: 5, points: 18, form: "平胜胜平负" },
+            { team: "浙江队", played: 10, win: 4, draw: 3, lose: 3, gf: 15, ga: 14, gd: 1, points: 15, form: "胜平负胜平" },
+            { team: "成都蓉城", played: 10, win: 4, draw: 2, lose: 4, gf: 16, ga: 16, gd: 0, points: 14, form: "负胜平胜负" },
+            { team: "天津津门虎", played: 10, win: 3, draw: 4, lose: 3, gf: 13, ga: 15, gd: -2, points: 13, form: "平负平平胜" },
+            { team: "河南嵩山龙门", played: 10, win: 3, draw: 2, lose: 5, gf: 12, ga: 18, gd: -6, points: 11, form: "负平负胜平" },
+            { team: "青岛海牛", played: 10, win: 2, draw: 3, lose: 5, gf: 10, ga: 17, gd: -7, points: 9, form: "负负平胜平" },
+            { team: "南通支云", played: 10, win: 1, draw: 2, lose: 7, gf: 8, ga: 22, gd: -14, points: 5, form: "负负平负胜" }
+        ];
+        let isRealRule = true;
+        function generateRank() {
+            const rankList = document.getElementById("rankList");
+            rankList.innerHTML = "";
+            const sortedTeams = [...csl2024Round10].sort((a, b) => {
+                if (isRealRule) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    if (b.gd !== a.gd) return b.gd - a.gd;
+                    return b.gf - a.gf;
+                } else {
+                    return b.gd - a.gd;
+                }
+            });
+            sortedTeams.forEach((team, index) => {
+                const row = document.createElement("tr");
+                if (index < 4) row.classList.add("champ-zone");
+                if (index >= sortedTeams.length - 2) row.classList.add("relegation-zone");
+                const teamInitial = team.team.charAt(0);
+
+                row.innerHTML = `
+                    <td class="rank-num">${index + 1}</td>
+                    <td class="team-col">
+                            <div class="team-logo">${teamInitial}</div>
+                            <span>${team.team}</span>
+                        </td>
+                        <td>${team.played}</td>
+                        <td>${team.win}</td>
+                        <td>${team.draw}</td>
+                        <td>${team.lose}</td>
+                        <td>${team.gf}</td>
+                        <td>${team.ga}</td>
+                        <td>${team.gd > 0 ? `+${team.gd}` : team.gd}</td>
+                        <td><strong>${team.points}</strong></td>
+                        <td>${team.form.split('').map(f => {
+                            const color = f === '胜' ? '#28a745' : f === '平' ? '#ffc107' : '#dc3545';
+                            return `<span style="color:${color}; font-weight:600">${f}</span>`;
+                        }).join('')}</td>
+                    `;
+                    rankList.appendChild(row);
+                });
+            }
+            function toggleRankRule() {
+                isRealRule = !isRealRule;
+                const ruleText = document.getElementById("ruleText");
+                ruleText.textContent = isRealRule ? "真实中超规则" : "仅净胜球排序";
+                generateRank();
+            }
+            window.onload = generateRank;
+        </script>
