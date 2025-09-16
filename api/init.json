@@ -1,0 +1,138 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/home.html"
+  },
+  "logoInfo": {
+    "title": "足球联赛",
+    "image": "images/logozuqiu.jpg",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "首页",
+          "href": "/page/home.html",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },
+        {
+          "title": "赛事管理",
+          "href": "",
+          "icon": "fa fa-group",
+          "target": "_self",
+          "child": [
+          {
+            "title": "赛事创建",
+            "href": "mky/sscj.html",
+            "icon": "fa fa-plus-square-o",
+            "target": "_self"
+          }, {
+            "title": "赛事查询",
+            "href": "mky/sscx.html",
+            "icon": "fa fa-search",
+            "target": "_self"
+          }
+        ]
+        },
+        {
+          "title": "球队管理",
+          "href": "",
+          "icon": "fa fa-institution",
+          "target": "_self",
+          "child": [
+            {
+              "title": "添加球队",
+              "href": "mke/tjqd.html",
+              "icon": "fa fa-plus-square-o",
+              "target": "_self"
+            }, {
+              "title": "球队信息",
+              "href": "mke/qdxx.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "球队成绩荣誉",
+              "href": "mke/qdcjry.html",
+              "icon": "fa fa-search",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "球员管理",
+          "href": "",
+          "icon": "fa fa-male",
+          "target": "_self",
+          "child": [
+            {
+              "title": "添加球员",
+              "href": "mks/tjqy.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "查询球员",
+              "href": "mks/cxqy.html",
+              "icon": "fa fa-search-plus",
+              "target": "_self"
+            }, {
+              "title": "球员统计",
+              "href": "mks/qytj.html",
+              "icon": "fa fa-bar-chart",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "裁判管理",
+          "href": "",
+          "icon": "fa fa-trophy",
+          "target": "_self",
+          "child": [
+            {
+              "title": "添加裁判",
+              "href": "mksi/tjcp.html",
+              "icon": "fa fa-plus-square-o",
+              "target": "_self"
+            }, {
+              "title": "查询裁判信息",
+              "href": "mksi/cpcx.html",
+              "icon": "fa fa-search",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "成绩与积分管理",
+          "href": "",
+          "icon": "fa fa-paw",
+          "target": "_self",
+          "child": [
+            {
+              "title": "比赛成绩录入",
+              "href": "mkw/bscjlr.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "查询成绩",
+              "href": "mkw/cxcj.html",
+              "icon": "fa fa-search-plus",
+              "target": "_self"
+            }, {
+              "title": "排名生成",
+              "href": "mkw/pmsc.html",
+              "icon": "fa fa-bar-chart",
+              "target": "_self"
+            }
+          ]
+        }
+        
+      ]
+    }
+  ]
+}

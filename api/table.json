@@ -1,0 +1,127 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 1,
+      "username": "曼彻斯特联足球俱乐部",
+      "sex": "26",
+      "city": "42",
+      "sign": "签名-0",
+      "experience": 255,
+      "logins": 24,
+      "wealth": 82830700,
+      "classify": "作家",
+      "score": 57
+    },
+    {
+      "id": 2,
+      "username": "利物浦足球俱乐部",
+      "sex": "32",
+      "city": "52",
+      "sign": "签名-1",
+      "experience": 884,
+      "logins": 58,
+      "wealth": 64928690,
+      "classify": "词人",
+      "score": 27
+    },
+    {
+      "id": 3,
+      "username": "阿森纳足球俱乐部",
+      "sex": "25",
+      "city": "30",
+      "sign": "签名-2",
+      "experience": 650,
+      "logins": 77,
+      "wealth": 6298078,
+      "classify": "酱油",
+      "score": 31
+    },
+    {
+      "id": 4,
+      "username": "切尔西足球俱乐部",
+      "sex": "46",
+      "city": "28",
+      "sign": "签名-3",
+      "experience": 362,
+      "logins": 157,
+      "wealth": 37117017,
+      "classify": "诗人",
+      "score": 68
+    },
+    {
+      "id": 5,
+      "username": "皇家马德里足球俱乐部",
+      "sex": "25",
+      "city": "73",
+      "sign": "签名-4",
+      "experience": 807,
+      "logins": 51,
+      "wealth": 76263262,
+      "classify": "作家",
+      "score": 6
+    },
+    {
+      "id": 6,
+      "username": "巴塞罗那足球俱乐部",
+      "sex": "26",
+      "city": "58",
+      "sign": "签名-5",
+      "experience": 173,
+      "logins": 68,
+      "wealth": 60344147,
+      "classify": "作家",
+      "score": 87
+    },
+    {
+      "id": 7,
+      "username": "拜仁慕尼黑足球俱乐部",
+      "sex": "27",
+      "city": "59",
+      "sign": "签名-6",
+      "experience": 982,
+      "logins": 37,
+      "wealth": 57768166,
+      "classify": "作家",
+      "score": 34
+    },
+    {
+      "id": 8,
+      "username": "AC米兰足球俱乐部",
+      "sex": "22",
+      "city": "30",
+      "sign": "签名-7",
+      "experience": 727,
+      "logins": 150,
+      "wealth": 82030578,
+      "classify": "作家",
+      "score": 28
+    },
+    {
+      "id": 9,
+      "username": "国际米兰足球俱乐部",
+      "sex": "21",
+      "city": "32",
+      "sign": "签名-8",
+      "experience": 951,
+      "logins": 133,
+      "wealth": 16503371,
+      "classify": "词人",
+      "score": 14
+    },
+    {
+      "id": 10,
+      "username": "尤文图斯足球俱乐部",
+      "sex": "20",
+      "city": "71",
+      "sign": "签名-9",
+      "experience": 484,
+      "logins": 25,
+      "wealth": 86801934,
+      "classify": "词人",
+      "score": 75
+    }
+  ]
+}

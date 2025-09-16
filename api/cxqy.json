@@ -1,0 +1,127 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 1,
+      "username": "梅西",
+      "sex": "右边锋",
+      "city": "36",
+      "sign": "签名-0",
+      "experience": 255,
+      "logins": 24,
+      "wealth": 82830700,
+      "classify": "作家",
+      "score": 57
+    },
+    {
+      "id": 2,
+      "username": "克里斯蒂亚诺·罗纳尔多",
+      "sex": "左边锋",
+      "city": "38",
+      "sign": "签名-1",
+      "experience": 884,
+      "logins": 58,
+      "wealth": 64928690,
+      "classify": "词人",
+      "score": 27
+    },
+    {
+      "id": 3,
+      "username": "曼努埃尔·诺伊尔",
+      "sex": "门将",
+      "city": "39",
+      "sign": "签名-2",
+      "experience": 650,
+      "logins": 77,
+      "wealth": 6298078,
+      "classify": "酱油",
+      "score": 31
+    },
+    {
+      "id": 4,
+      "username": "菲利普·拉姆",
+      "sex": "右后卫",
+      "city": "39",
+      "sign": "签名-3",
+      "experience": 362,
+      "logins": 157,
+      "wealth": 37117017,
+      "classify": "诗人",
+      "score": 68
+    },
+    {
+      "id": 5,
+      "username": "拉明·亚马尔",
+      "sex": "右边锋",
+      "city": "16",
+      "sign": "签名-4",
+      "experience": 807,
+      "logins": 51,
+      "wealth": 76263262,
+      "classify": "作家",
+      "score": 6
+    },
+    {
+      "id": 6,
+      "username": "奥斯曼·登贝莱",
+      "sex": "前锋",
+      "city": "26",
+      "sign": "签名-5",
+      "experience": 173,
+      "logins": 68,
+      "wealth": 60344147,
+      "classify": "作家",
+      "score": 87
+    },
+    {
+      "id": 7,
+      "username": "范戴克",
+      "sex": "中后卫",
+      "city": "32",
+      "sign": "签名-6",
+      "experience": 982,
+      "logins": 37,
+      "wealth": 57768166,
+      "classify": "作家",
+      "score": 34
+    },
+    {
+      "id": 8,
+      "username": "阿什拉夫",
+      "sex": "右后卫",
+      "city": "25",
+      "sign": "签名-7",
+      "experience": 727,
+      "logins": 150,
+      "wealth": 82030578,
+      "classify": "作家",
+      "score": 28
+    },
+    {
+      "id": 9,
+      "username": "莱万多夫斯基",
+      "sex": "前锋",
+      "city": "35",
+      "sign": "签名-8",
+      "experience": 951,
+      "logins": 133,
+      "wealth": 16503371,
+      "classify": "词人",
+      "score": 14
+    },
+    {
+      "id": 10,
+      "username": "基利安·姆巴佩",
+      "sex": "中锋",
+      "city": "25",
+      "sign": "签名-9",
+      "experience": 484,
+      "logins": 25,
+      "wealth": 86801934,
+      "classify": "词人",
+      "score": 75
+    }
+  ]
+}
